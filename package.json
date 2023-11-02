@@ -1,0 +1,27 @@
+{
+  "name": "super-chat-podcast",
+  "version": "1.0.0",
+  "description": "Super chats para podcasts e lives",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app",
+    "dev": "nodemon app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YagoFogaca/super-chat-podcast.git"
+  },
+  "author": "Yago Fogaça",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YagoFogaca/super-chat-podcast/issues"
+  },
+  "homepage": "https://github.com/YagoFogaca/super-chat-podcast#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "nodemon": "^3.0.1"
+  }
+}
