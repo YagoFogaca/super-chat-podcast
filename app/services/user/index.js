@@ -1,10 +1,11 @@
 export class UserService {
-  constructor(repository) {
+  constructor(createUserUseCase, repository) {
     this.repository = repository;
+    this.createUserUseCase = createUserUseCase;
   }
 
   async create(user) {
-    return await this.repository.create(user);
+    return await this.createUserUseCase.execute(user);
   }
 
   async findAll() {
