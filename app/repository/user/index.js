@@ -4,7 +4,6 @@ export class UserRepository {
   }
 
   async create(user) {
-    console.log(user);
     return await this.prisma.user.create({ data: user });
   }
 
