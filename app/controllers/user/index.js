@@ -7,7 +7,6 @@ export class UserController {
     try {
       const user = await this.service.create(req.body);
       return res.status(201).send({
-        message: "TESTE CRIAR",
         data: user,
         code: 201,
       });
@@ -24,7 +23,6 @@ export class UserController {
     try {
       const users = await this.service.findAll();
       return res.status(200).send({
-        message: "TESTE BUSCA TOTAL",
         data: users,
         code: 200,
       });
@@ -42,7 +40,6 @@ export class UserController {
       const user = await this.service.findById(+id);
 
       return res.status(200).send({
-        message: "TESTE BUSCA POR ID",
         data: user,
         code: 200,
       });
@@ -57,9 +54,10 @@ export class UserController {
   async update(req, res) {
     try {
       const id = req.params.id;
+      const user = req.body;
+      const userUpdate = await this.service.update(id, user);
       return res.status(200).send({
-        message: "TESTE UPDATE",
-        data: { id: id },
+        data: userUpdate,
         code: 200,
       });
     } catch (error) {
@@ -75,7 +73,6 @@ export class UserController {
       const id = req.params.id;
       const userDeleted = await this.service.delete(+id);
       return res.status(200).send({
-        message: "TESTE DELETE",
         data: userDeleted,
         code: 200,
       });

@@ -1,7 +1,16 @@
 export class UserService {
-  constructor(createUserUseCase, repository) {
-    this.repository = repository;
+  constructor(
+    createUserUseCase,
+    findAllUsersUseCase,
+    FindByIdUserUsecase,
+    updateUserUsecase,
+    deleteUserUsecase
+  ) {
     this.createUserUseCase = createUserUseCase;
+    this.findAllUsersUseCase = findAllUsersUseCase;
+    this.findByIdUserUsecase = FindByIdUserUsecase;
+    this.updateUserUsecase = updateUserUsecase;
+    this.deleteUserUsecase = deleteUserUsecase;
   }
 
   async create(user) {
@@ -9,18 +18,18 @@ export class UserService {
   }
 
   async findAll() {
-    return await this.repository.findAll();
+    return await this.findAllUsersUseCase.execute();
   }
 
   async findById(id) {
-    return await this.repository.findById(id);
+    return await this.findByIdUserUsecase.execute(id);
   }
 
   async update(id, user) {
-    return await this.repository.update(id, user);
+    return await this.updateUserUsecase.execute(id, user);
   }
 
   async delete(id) {
-    return await this.repository.delete(id);
+    return await this.deleteUserUsecase.execute(id);
   }
 }
